@@ -1,0 +1,17 @@
+name: SimpleDoubleJump
+main: com.spigot.sdj.Main
+author: TrieuCoding
+description: A simple double-jump plugin
+version: 2.1
+
+commands:
+  simpledoublejump:
+    description: Main command
+    usage: /<command>
+    aliases: [sdj]
+
+permissions:
+  sdj.reloadcmd:
+    description: Permission to reload plugin
+  sdj.toggle:
+    description: Permission to toggle double-jump mode

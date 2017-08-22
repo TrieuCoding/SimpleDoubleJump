@@ -1,0 +1,20 @@
+# Made by TrieuCoding
+# Only support 1.11, 1.11.2
+# If you have bug or error, please upload it to "Discussion" tab, I'll fix it if i can!
+# You can decompile this plugin if you want <3
+
+prefix: '&7[&cSimple Doublejump&7]&r '
+
+check-update: true
+
+no-permission: '&cYou dont have permission to do this!'
+
+reload: '&aReload config!'
+
+cooldown: 3
+
+particle: FIREWORKS_SPARK
+# You can found Particle type in this website: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Particle.html
+
+sound: ENTITY_WITHER_SHOOT
+# You can found Sound type in this website: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Sound.html
