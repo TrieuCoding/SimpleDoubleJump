@@ -40,11 +40,11 @@ public class Commands implements CommandExecutor {
 			if (sender instanceof Player) {
 				if (sender.hasPermission("sdj.reloadcmd")) {
 					plugin.reloadingConfiguration();
-					sender.sendMessage(plugin.getConfig().getString("prefix").replace("&", "�")
-							+ plugin.getConfig().getString("reload").replace("&", "�"));
+					sender.sendMessage(plugin.getConfig().getString("prefix").replace("&", "§")
+							+ plugin.getConfig().getString("reload").replace("&", "§"));
 				} else {
-					sender.sendMessage(plugin.getConfig().getString("prefix").replace("&", "�")
-							+ plugin.getConfig().getString("no-permission").replace("&", "�"));
+					sender.sendMessage(plugin.getConfig().getString("prefix").replace("&", "§")
+							+ plugin.getConfig().getString("no-permission").replace("&", "§"));
 					return true;
 				}
 			} else {
@@ -56,18 +56,18 @@ public class Commands implements CommandExecutor {
 				if (sender.hasPermission("sdj.toggle")) {
 					if (!plugin.list.contains(((Player) sender).getUniqueId())) {
 						plugin.list.add(((Player) sender).getUniqueId());
-						sender.sendMessage(plugin.getConfig().getString("prefix").replace("&", "�")
+						sender.sendMessage(plugin.getConfig().getString("prefix").replace("&", "§")
 									+ ChatColor.GREEN + "Double-jump mode has been enabled!");
 					} else {
 						plugin.list.remove(((Player) sender).getUniqueId());
 						((Player) sender).setAllowFlight(false);
 						((Player) sender).setFlying(false);
-						sender.sendMessage(plugin.getConfig().getString("prefix").replace("&", "�")
+						sender.sendMessage(plugin.getConfig().getString("prefix").replace("&", "§")
 									+ ChatColor.RED + "Double-jump mode has been disabled!");
 					}
 				} else {
-					sender.sendMessage(plugin.getConfig().getString("prefix").replace("&", "�")
-							+ plugin.getConfig().getString("no-permission").replace("&", "�"));
+					sender.sendMessage(plugin.getConfig().getString("prefix").replace("&", "§")
+							+ plugin.getConfig().getString("no-permission").replace("&", "§"));
 					return true;
 				}
 			} else {
