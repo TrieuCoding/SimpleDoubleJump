@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+import com.spigot.sdj.versions.ServerVersion;
+import org.bukkit.Bukkit;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -25,16 +27,10 @@ public class Main extends JavaPlugin {
 	public List<UUID> list = new ArrayList<>();
 	public List<UUID> list2 = new ArrayList<>();
 	
-	String i = getServer().getClass().getPackage().getName();
-	String version = i.substring(i.lastIndexOf(".") + 1);
-	
-	@SuppressWarnings("unused")
-	private Boolean outdated;
-	
 	@Override
 	public void onEnable() {
 		ConsoleCommandSender console = getServer().getConsoleSender();
-		if (version.equalsIgnoreCase("v1_11_R1")) {
+		if (ServerVersion.isMC111()) {
 			plugin = this;
 			instance = this;
 			Events.plugin = this;
@@ -43,14 +39,14 @@ public class Main extends JavaPlugin {
 			registerListeners();
 			registerCommands();
 			loadingConfiguration();
-			console.sendMessage(cslprefix + "Server version: " + version);
+			console.sendMessage(cslprefix + "Server version: " + Bukkit.getBukkitVersion());
 			console.sendMessage(cslprefix + "Plugin has been enabled!");
 			console.sendMessage(cslprefix + "If you have any bug or error, please upload your bug to my project!");
 			if (plugin.getConfig().getBoolean("check-update")) {
 				Updater.print();
 			}
 		} else {
-			console.sendMessage(cslprefix + "Server version: " + plugin.getServer().getVersion());
+			console.sendMessage(cslprefix + "Server version: " + Bukkit.getBukkitVersion());
 			console.sendMessage(cslprefix + "This plugin isn't support this version! Please use 1.11 or 1.11.2!");
 			plugin.getServer().getPluginManager().disablePlugin(this);
 		}
