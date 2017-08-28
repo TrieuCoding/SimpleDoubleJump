@@ -78,6 +78,13 @@ public class Events implements Listener {
 						0.5f, 0.5f, 0.5f, 0.07f, 80);
 				packet.sendToPlayer(p);
 				plugin.list2.add(p.getUniqueId());
+				if (plugin.getConfig().getBoolean("food.take")) {
+					if (p.getFoodLevel() >= plugin.getConfig().getInt("food.amount")) {
+						p.setFoodLevel((p.getFoodLevel() - plugin.getConfig().getInt("food.amount")));
+					} else {
+						p.setFoodLevel((p.getFoodLevel() - p.getFoodLevel()));
+					}
+				}
 
 				new BukkitRunnable() {
 					int cooldown = plugin.getConfig().getInt("cooldown");

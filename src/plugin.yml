@@ -2,7 +2,7 @@ name: SimpleDoubleJump
 main: com.spigot.sdj.Main
 author: TrieuCoding
 description: A simple double-jump plugin
-version: 2.1
+version: 2.2
 
 commands:
   simpledoublejump:
