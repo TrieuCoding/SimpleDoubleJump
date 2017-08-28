@@ -14,8 +14,8 @@ public class Utils {
 	public static void sendTitleToPlayer(Player p, String title, String subTitle, int fadeIn, int stay, int fadeOut) {
 		PlayerConnection pl = ((CraftPlayer) p).getHandle().playerConnection;
 		
-		IChatBaseComponent textTitle = ChatSerializer.a("{\"text\":\"" + title.replace("&", "ง") + "\"}");
-		IChatBaseComponent textSubtitle = ChatSerializer.a("{\"text\":\"" + subTitle.replace("&", "ง") + "\"}");
+		IChatBaseComponent textTitle = ChatSerializer.a("{\"text\":\"" + title.replace("&", "ยง") + "\"}");
+		IChatBaseComponent textSubtitle = ChatSerializer.a("{\"text\":\"" + subTitle.replace("&", "ยง") + "\"}");
 		PacketPlayOutTitle pTitle = new PacketPlayOutTitle(EnumTitleAction.TITLE, textTitle, fadeIn, stay, fadeOut);
 		PacketPlayOutTitle pSubtitle = new PacketPlayOutTitle(EnumTitleAction.SUBTITLE, textSubtitle, fadeIn, stay, fadeOut);
 		
@@ -26,7 +26,7 @@ public class Utils {
 	public static void sendActionbarToPlayer(Player p, String text) {
 		PlayerConnection pl = ((CraftPlayer) p).getHandle().playerConnection;
 		
-		IChatBaseComponent textActionbar = ChatSerializer.a("{\"text\":\"" + text.replace("&", "ง") + "\"}");
+		IChatBaseComponent textActionbar = ChatSerializer.a("{\"text\":\"" + text.replace("&", "ยง") + "\"}");
 		PacketPlayOutTitle action = new PacketPlayOutTitle(EnumTitleAction.ACTIONBAR, textActionbar);
 		
 		pl.sendPacket(action);
