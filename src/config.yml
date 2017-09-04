@@ -7,10 +7,6 @@ prefix: '&7[&cSimple Doublejump&7]&r '
 
 check-update: true
 
-food:
-  take: false
-  amount: 3
-
 no-permission: '&cYou dont have permission to do this!'
 
 reload: '&aReload config!'

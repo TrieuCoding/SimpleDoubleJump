@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import com.spigot.sdj.versions.ServerVersion;
 import org.bukkit.Bukkit;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.plugin.Plugin;
@@ -62,11 +61,6 @@ public class Main extends JavaPlugin {
 		
 		String update = "check-update";
 		plugin.getConfig().addDefault(update, Boolean.valueOf(true));
-
-		String food = "food.take";
-		plugin.getConfig().addDefault(food, Boolean.valueOf(false));
-		String food2 = "food.amount";
-		plugin.getConfig().addDefault(food2, "3");
 		
 		String noperm = "no-permission";
 		plugin.getConfig().addDefault(noperm, "&cYou dont have permission to do this!");

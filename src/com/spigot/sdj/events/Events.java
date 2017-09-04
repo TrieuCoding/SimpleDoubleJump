@@ -78,30 +78,23 @@ public class Events implements Listener {
 						0.5f, 0.5f, 0.5f, 0.07f, 80);
 				packet.sendToPlayer(p);
 				plugin.list2.add(p.getUniqueId());
-				if (plugin.getConfig().getBoolean("food.take")) {
-					if (p.getFoodLevel() >= plugin.getConfig().getInt("food.amount")) {
-						p.setFoodLevel((p.getFoodLevel() - plugin.getConfig().getInt("food.amount")));
-					} else {
-						p.setFoodLevel((p.getFoodLevel() - p.getFoodLevel()));
-					}
-				}
 
 				new BukkitRunnable() {
 					int cooldown = plugin.getConfig().getInt("cooldown");
 					int cooldown2 = plugin.getConfig().getInt("cooldown");
 					@Override
 					public void run() {
-						if (cooldown > 0) {
+						if (this.cooldown > 0) {
 							Utils.sendActionbarToPlayer(p, "&cPlease wait &f" + cooldown + " &cto double-jump!");
 							p.playSound(p.getLocation(), Sound.UI_BUTTON_CLICK, 4F, 1F);
-							cooldown--;
+							this.cooldown--;
 						} else {
 							Utils.sendActionbarToPlayer(p, "&aYou can double-jump now!");
 							p.playSound(p.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 3F, 1F);
 							plugin.list2.remove(p.getUniqueId());
 							cancel();
-							plugin.getServer().getScheduler().cancelTask(cooldown);
-							cooldown += cooldown2;
+							plugin.getServer().getScheduler().cancelTask(this.cooldown);
+							this.cooldown += this.cooldown2;
 						}
 					}
 				}.runTaskTimerAsynchronously(plugin, 0L, 20L);
